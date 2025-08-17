@@ -175,7 +175,7 @@ export default function AboutPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
           className="rounded-2xl p-12 text-center"
         >
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>

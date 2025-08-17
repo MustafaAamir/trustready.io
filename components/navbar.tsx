@@ -9,10 +9,6 @@ export function Navbar() {
       label: "Services",
       href: "/services",
     },
-    {
-      label: "News",
-      href: "/news",
-    },
   ];
 
   return (
