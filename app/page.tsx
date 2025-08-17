@@ -59,8 +59,8 @@ const formSchema = z.object({
     .refine(
       (val) => !val || validator.isMobilePhone(val),
       "Invalid phone number",
-    )
-    .optional(),
+    ),
+  query: z.string().min(2, "Query must be at least 2 characters")
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -169,7 +169,7 @@ export default function Home() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
+                      <FormLabel>Query</FormLabel>
                       <FormControl>
                         <Input placeholder="Your full name" {...field} />
                       </FormControl>
@@ -215,6 +215,25 @@ export default function Home() {
                       <FormLabel>Phone Number</FormLabel>
                       <FormControl>
                         <Input placeholder="Your contact number" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+				  className="w-full"
+                  control={form.control}
+                  name="query"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormLabel>Query</FormLabel>
+                      <FormControl>
+						<Textarea
+						  rows={5}                              
+						  className="resize-y w-full"           
+						  placeholder="A detailed description of your inquiry and the service you're interested in."
+						  {...field}
+						/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -269,3 +288,4 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Shield, FileCheck, CheckCircle, Globe, Zap } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
